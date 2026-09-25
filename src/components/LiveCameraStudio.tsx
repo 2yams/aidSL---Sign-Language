@@ -692,17 +692,27 @@ export const LiveCameraStudio: React.FC<LiveCameraStudioProps> = ({
           
           {/* Target Sign Blueprint Card */}
           <div className="bg-white border border-[#D1D1D1] p-6 shadow-xs space-y-4">
-            <div className="flex items-start justify-between">
-              <div>
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex-1 min-w-0">
                 <span className="text-[10px] uppercase font-mono tracking-widest text-[#888]">
                   Target Blueprint
                 </span>
-                <h2 className="text-2xl font-serif font-black text-[#1A1A1A] mt-0.5">
+                <h2 className="text-2xl font-serif font-black text-[#1A1A1A] mt-0.5 truncate">
                   {letterData.title}
                 </h2>
               </div>
 
-              <div className="w-16 h-16 bg-[#FAF9F5] border border-black flex items-center justify-center font-serif text-3xl font-black text-black shadow-inner">
+              <div
+                className={`min-w-16 h-16 px-3 bg-[#FAF9F5] border border-black flex items-center justify-center font-serif font-black text-black shadow-inner text-center shrink-0 ${
+                  currentLetter.length <= 1
+                    ? "w-16 text-3xl"
+                    : currentLetter.length <= 3
+                    ? "text-2xl"
+                    : currentLetter.length <= 6
+                    ? "text-lg tracking-wide"
+                    : "text-xs font-mono uppercase tracking-wider font-bold"
+                }`}
+              >
                 {currentLetter}
               </div>
             </div>
