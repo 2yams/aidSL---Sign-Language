@@ -1,5 +1,5 @@
-import React from "react";
-import { X, Sliders, Palette, Camera, Volume2, FastForward, Check } from "lucide-react";
+import React, { useState } from "react";
+import { X, Sliders, Palette, Check, Key, Eye, EyeOff, Sparkles, ExternalLink } from "lucide-react";
 import { SamplingSettings } from "../types/sign";
 
 interface SamplingSettingsModalProps {
@@ -15,6 +15,8 @@ export const SamplingSettingsModal: React.FC<SamplingSettingsModalProps> = ({
   settings,
   onUpdateSettings,
 }) => {
+  const [showApiKey, setShowApiKey] = useState(false);
+
   if (!isOpen) return null;
 
   const handleChange = <K extends keyof SamplingSettings>(
@@ -39,7 +41,7 @@ export const SamplingSettingsModal: React.FC<SamplingSettingsModalProps> = ({
         <div className="flex items-center justify-between border-b border-[#D1D1D1] pb-3">
           <div className="flex items-center gap-2">
             <Sliders className="w-5 h-5 text-black" />
-            <h3 className="font-serif text-lg font-bold text-[#1A1A1A]">Neural ML & Camera Settings</h3>
+            <h3 className="font-serif text-lg font-bold text-[#1A1A1A]">Settings</h3>
           </div>
           <button
             onClick={onClose}
@@ -51,6 +53,61 @@ export const SamplingSettingsModal: React.FC<SamplingSettingsModalProps> = ({
 
         <div className="space-y-5 text-xs">
           
+          {/* Gemini API Key Section */}
+          <div className="bg-[#FAF9F5] border border-[#D1D1D1] p-4 space-y-3">
+            <div className="flex items-center justify-between">
+              <label className="text-[#1A1A1A] font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
+                <Key className="w-3.5 h-3.5 text-black" />
+                <span>Gemini API Key</span>
+              </label>
+
+              {settings.geminiApiKey?.trim() ? (
+                <span className="text-[10px] bg-emerald-100 text-emerald-800 font-mono font-bold px-2 py-0.5 border border-emerald-300">
+                  Key Configured
+                </span>
+              ) : (
+                <span className="text-[10px] text-[#888] font-mono">
+                  Optional (Fallback offline)
+                </span>
+              )}
+            </div>
+
+            <p className="text-[11px] text-[#666] leading-relaxed">
+              Add your personal Gemini API key to power AI vision analysis, custom feedback, and mentor responses.
+            </p>
+
+            <div className="relative">
+              <input
+                type={showApiKey ? "text" : "password"}
+                value={settings.geminiApiKey || ""}
+                onChange={(e) => handleChange("geminiApiKey", e.target.value)}
+                placeholder="AIzaSy..."
+                className="w-full bg-white border border-[#D1D1D1] p-2.5 pr-10 text-xs font-mono text-[#1A1A1A] focus:outline-none focus:border-black"
+              />
+              <button
+                type="button"
+                onClick={() => setShowApiKey(!showApiKey)}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#888] hover:text-black p-1 cursor-pointer transition-colors"
+                title={showApiKey ? "Hide API key" : "Show API key"}
+              >
+                {showApiKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
+            </div>
+
+            <div className="flex items-center justify-between text-[10px] text-[#777]">
+              <span>Key is stored locally in your browser</span>
+              {settings.geminiApiKey && (
+                <button
+                  type="button"
+                  onClick={() => handleChange("geminiApiKey", "")}
+                  className="text-red-600 hover:underline cursor-pointer"
+                >
+                  Clear key
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* HUD Color Scheme */}
           <div className="space-y-2">
             <label className="text-[#1A1A1A] font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
@@ -135,7 +192,7 @@ export const SamplingSettingsModal: React.FC<SamplingSettingsModalProps> = ({
             <label className="flex items-center justify-between cursor-pointer p-1">
               <div>
                 <span className="font-bold text-xs block">Auto-Advance on Sign Hold</span>
-                <span className="text-[10px] text-[#777]">Progress to next letter when posture matches</span>
+                <span className="text-[10px] text-[#777]">Progress to next letter when live posture matches</span>
               </div>
               <input
                 type="checkbox"
