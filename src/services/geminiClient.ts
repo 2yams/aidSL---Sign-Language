@@ -128,7 +128,7 @@ async function callDirectGeminiChat(
     }
   }
 
-  throw new Error(lastError || "Could not connect to Gemini API. Please verify your API key in Settings.");
+  throw new Error(lastError || "Could not connect to AI API. Please verify your API key in Settings.");
 }
 
 export async function sendMentorMessage(
@@ -170,10 +170,10 @@ export async function sendMentorMessage(
       // If the error was an invalid key or quota, propagate it clearly
       const msg = err?.message || "";
       if (msg.includes("API key not valid") || msg.includes("INVALID_ARGUMENT") || msg.includes("400")) {
-        throw new Error("The Gemini API key in Settings is invalid. Please double-check your key.");
+        throw new Error("The AI API key in Settings is invalid. Please double-check your key.");
       }
       if (msg.includes("quota") || msg.includes("429") || msg.includes("RESOURCE_EXHAUSTED")) {
-        throw new Error("Gemini API quota exceeded for this key. Please check your Google AI Studio quota.");
+        throw new Error("AI API quota exceeded for this key. Please check your Google AI Studio quota.");
       }
       throw err;
     }
@@ -291,7 +291,7 @@ export async function fetchFrameAnalysis(
           matchScore: typeof parsed.matchScore === "number" ? parsed.matchScore : 85,
           isMatch: Boolean(parsed.isMatch),
           subtext: parsed.subtext || `Keep fingers steady for '${targetLetter}'.`,
-          feedback: parsed.feedback || "Hand verified by Gemini Vision.",
+          feedback: parsed.feedback || "Hand verified by AI Vision.",
         };
       }
     } catch {}

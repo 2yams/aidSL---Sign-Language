@@ -158,7 +158,7 @@ export const VogueLanding: React.FC<VogueLandingProps> = ({ onEnterApp }) => {
             </h1>
 
             <p className="text-[#555] text-base md:text-lg max-w-xl font-light leading-relaxed">
-              Bridging the gap between silent expression and digital clarity with 60FPS neural hand tracking, joint angle verification, real-time sentence translation, and Gemini 3.8 master mentoring.
+              Bridging the gap between silent expression and digital clarity with 60FPS neural hand tracking, joint angle verification, real-time sentence translation, and AI master mentoring.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
@@ -303,7 +303,7 @@ export const VogueLanding: React.FC<VogueLandingProps> = ({ onEnterApp }) => {
               Realtime Sign Translator
             </h3>
             <p className="text-xs text-[#555] font-light leading-relaxed">
-              Continuous sign recognition with Gemini grammar polish and natural voice audio readout.
+              Continuous sign recognition with AI grammar polish and natural voice audio readout.
             </p>
           </div>
 
@@ -315,7 +315,7 @@ export const VogueLanding: React.FC<VogueLandingProps> = ({ onEnterApp }) => {
               <MessageSquare className="w-4 h-4" />
             </div>
             <h3 className="font-serif text-lg font-bold text-[#1A1A1A] group-hover:text-black">
-              Gemini AI Mentor
+              AI Mentor
             </h3>
             <p className="text-xs text-[#555] font-light leading-relaxed">
               Expert advice on Topic-Comment grammar, non-manual facial markers, and Deaf culture etiquette.

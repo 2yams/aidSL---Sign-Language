@@ -417,7 +417,7 @@ export const RealtimeTranslator: React.FC<RealtimeTranslatorProps> = ({ settings
                 className="flex-1 bg-black text-white py-2.5 px-4 font-semibold text-xs tracking-wider uppercase hover:bg-neutral-800 disabled:opacity-40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Sparkles size={14} className={isEnhancing ? "animate-spin" : ""} />
-                {isEnhancing ? "Polishing with Gemini..." : "Gemini AI Grammar Polish"}
+                {isEnhancing ? "Polishing with AI..." : "AI Grammar Polish"}
               </button>
 
               <button

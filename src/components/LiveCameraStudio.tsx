@@ -454,7 +454,7 @@ export const LiveCameraStudio: React.FC<LiveCameraStudioProps> = ({
             Interactive Posture Studio
           </h1>
           <p className="text-xs text-[#666] mt-0.5 max-w-xl">
-            Real-time neural hand biomechanics tracking, joint angle verification, and Gemini vision assistance.
+            Real-time neural hand biomechanics tracking, joint angle verification, and AI vision assistance.
           </p>
         </div>
 
@@ -579,10 +579,10 @@ export const LiveCameraStudio: React.FC<LiveCameraStudioProps> = ({
                   onClick={handleDeepGeminiAnalysis}
                   disabled={aiAnalyzing}
                   className="bg-emerald-600/90 hover:bg-emerald-500 text-white text-[11px] font-semibold px-3 py-1.5 flex items-center gap-1.5 border border-emerald-400/30 transition-colors shadow-sm cursor-pointer"
-                  title="Ask Gemini Vision for detailed posture evaluation"
+                  title="Ask AI Vision for detailed posture evaluation"
                 >
                   <Sparkles size={13} className={aiAnalyzing ? "animate-spin" : ""} />
-                  <span>{aiAnalyzing ? "Gemini Verifying..." : "Gemini AI Vision"}</span>
+                  <span>{aiAnalyzing ? "AI Verifying..." : "AI Vision"}</span>
                 </button>
 
                 <button
@@ -640,7 +640,7 @@ export const LiveCameraStudio: React.FC<LiveCameraStudioProps> = ({
               <div className="flex items-center gap-2 mb-1">
                 <Sparkles size={16} className="text-emerald-600" />
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#1A1A1A]">
-                  Gemini 3.8 Multimodal Feedback
+                  AI Multimodal Feedback
                 </h4>
                 <span className="text-[10px] font-mono px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold">
                   {aiAnalysisResult.matchScore}% Score
@@ -760,7 +760,7 @@ export const LiveCameraStudio: React.FC<LiveCameraStudioProps> = ({
 
             <div className="flex items-center justify-between border-b border-[#EAE8E2] pb-2">
               <span className="text-[#666]">Detection Engine</span>
-              <span className="font-mono text-emerald-700">MediaPipe Vision + Gemini</span>
+              <span className="font-mono text-emerald-700">MediaPipe Vision + AI</span>
             </div>
 
             <div className="flex items-center justify-between">

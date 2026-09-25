@@ -13,7 +13,7 @@ const INITIAL_MESSAGES: ChatMessage[] = [
   {
     id: "m1",
     role: "model",
-    text: "Welcome to aidSL Mentor. I am your AI Sign Language Coach & Deaf Culture Guide powered by Gemini 3.8. Ask me how to form any ASL sign, fingerspelling techniques, grammar rules, or request a practice drill!",
+    text: "Welcome to aidSL Mentor. I am your AI Sign Language Coach & Deaf Culture Guide. Ask me how to form any ASL sign, fingerspelling techniques, grammar rules, or request a practice drill!",
     timestamp: "Just now",
   },
 ];
@@ -72,9 +72,9 @@ export const AiMentorChat: React.FC<AiMentorChatProps> = ({ settings, onPractice
       const errText = err?.message || "";
       let feedback = errText || "I encountered a minor connection issue. Please try asking your question again.";
       if (errText.includes("429") || errText.includes("quota") || errText.includes("RESOURCE_EXHAUSTED")) {
-        feedback = "Gemini API daily quota reached for this key. Please check your AI Studio quota or try another key.";
+        feedback = "AI API daily quota reached for this key. Please check your AI Studio quota or try another key.";
       } else if (errText.includes("API key not valid") || errText.includes("403") || errText.includes("INVALID_ARGUMENT") || errText.includes("invalid")) {
-        feedback = "The Gemini API key provided appears invalid. Please check your key in the Settings panel.";
+        feedback = "The AI API key provided appears invalid. Please check your key in the Settings panel.";
       }
       setMessages((prev) => [
         ...prev,
@@ -103,7 +103,7 @@ export const AiMentorChat: React.FC<AiMentorChatProps> = ({ settings, onPractice
             <h2 className="font-serif italic text-2xl font-bold text-[#1A1A1A] flex items-center gap-3">
               <span>aidSL AI Mentor</span>
               <span className="text-[10px] font-mono font-bold text-black border border-black px-2 py-0.5 uppercase">
-                Gemini 3.8
+                AI Assistant
               </span>
             </h2>
             <p className="text-xs font-mono text-[#888]">
@@ -158,7 +158,7 @@ export const AiMentorChat: React.FC<AiMentorChatProps> = ({ settings, onPractice
         {isLoading && (
           <div className="flex items-center gap-3 text-xs font-mono text-[#555]">
             <Sparkles className="w-4 h-4 animate-spin text-black" />
-            <span>Gemini Mentor is formulating sign guidance...</span>
+            <span>AI Mentor is formulating sign guidance...</span>
           </div>
         )}
 

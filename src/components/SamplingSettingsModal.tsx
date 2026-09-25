@@ -53,12 +53,12 @@ export const SamplingSettingsModal: React.FC<SamplingSettingsModalProps> = ({
 
         <div className="space-y-5 text-xs">
           
-          {/* Gemini API Key Section */}
+          {/* AI API Key Section */}
           <div className="bg-[#FAF9F5] border border-[#D1D1D1] p-4 space-y-3">
             <div className="flex items-center justify-between">
               <label className="text-[#1A1A1A] font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
                 <Key className="w-3.5 h-3.5 text-black" />
-                <span>Gemini API Key</span>
+                <span>AI API Key</span>
               </label>
 
               {settings.geminiApiKey?.trim() ? (
@@ -73,7 +73,7 @@ export const SamplingSettingsModal: React.FC<SamplingSettingsModalProps> = ({
             </div>
 
             <p className="text-[11px] text-[#666] leading-relaxed">
-              Add your personal Gemini API key to power AI vision analysis, custom feedback, and mentor responses.
+              Add your personal AI API key to power AI vision analysis, custom feedback, and mentor responses.
             </p>
 
             <div className="relative">
